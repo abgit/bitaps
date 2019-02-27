@@ -2,6 +2,8 @@
 
 namespace bitaps;
 
+use \Requests;
+
 class request{
 
     private $json_assoc = true;
