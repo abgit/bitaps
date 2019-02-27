@@ -1,0 +1,12 @@
+{
+	"name": "abgit/bitaps",
+	"description": "a simple bitaps.com php sdk",
+    "require": {
+		 "rmccue/requests": ">=1.0"		 
+	},
+	"autoload": {
+        "psr-4": {
+            "bitaps\\": "src/"
+        }
+    },
+}
