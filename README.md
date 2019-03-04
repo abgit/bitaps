@@ -35,9 +35,13 @@ $result = $market->tickerList();
 Payment Forwarding API:
 
 ```php
+<?php
+
+// import dependencies
+require 'vendor/autoload.php';
+
 // get the bitaps class instance
 $pf = new bitaps\paymentforwarding();
-
 
 // Payment forwarding API: Payment forwarding - Create forwarding address
 $result = $pf->createForwardingAddress( $forwarding_address, $callback_link, $confirmations );
@@ -49,7 +53,7 @@ $result = $pf->paymentAddressState( $address, $PaymentCode, $AccessToken );
 $result = $pf->listOfPaymentAddressTransactions( $address, $PaymentCode, $AccessToken, $from, $to, $limit, $page );
 
 // Payment forwarding API: Payment forwarding - Callback handler
-$result = $pf->callbackHandler(){
+$result = $pf->callbackHandler();
 
 // Payment forwarding API: Payment forwarding - Callback log for payment address
 $result = $pf->callbackLogForPaymentAddress( $address, $PaymentCode, $AccessToken, $limit, $page );
