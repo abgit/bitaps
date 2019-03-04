@@ -4,20 +4,18 @@ namespace bitaps;
 
 class market extends request{
 
-    private $endpoint_market = 'https://api.bitaps.com/market/v1/';
-
-    public function setmarket( $url ){
-        $this->endpoint_market = $url;
+    public function __construct(){
+        $this->setEndpoint( 'https://api.bitaps.com/market/v1/' );
     }
 
     // Market API: Tickers - Average price
     public function averagePrice( $pair = 'btcusd' ){
-        return $this->get( $this->endpoint_market . '/ticker/' . $pair );
+        return $this->get( $this->endpoint . '/ticker/' . $pair );
     }
 
     // Market API: Tickers - Ticker list
     public function tickerList( $list = 'btcusd' ){
-        return $this->get( $this->endpoint_market . '/tickers/' . $list );
+        return $this->get( $this->endpoint . '/tickers/' . $list );
     }
 
 }

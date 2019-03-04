@@ -7,6 +7,11 @@ use \Requests;
 class request{
 
     private $json_assoc = true;
+    protected $endpoint;
+
+    public function setEndpoint( $url ){
+        $this->endpoint = $url;
+    }
 
     public function setJsonObject(){
         $this->json_assoc = false;
