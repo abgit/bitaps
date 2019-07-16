@@ -79,3 +79,39 @@ $result = $pf->listOfDomainTransactions( $domainHash, $AccessToken, $from, $to, 
 // Payment forwarding API: Domain statistics - Daily domain statistics
 $result = $pf->dailyDomainStatistics( $domainHash, $AccessToken, $from, $to, $limit, $page);
 ```
+
+Wallet API:
+
+```php
+<?php
+
+// import dependencies
+require 'vendor/autoload.php';
+
+// create a new wallet
+$wallet = new bitaps\wallet();
+$result = $wallet->create( $callback_link, $password );
+
+// or init a previous created wallet
+$wallet = new bitaps\wallet( $wallet_id, $password );
+
+// Wallet API: add Address to Wallet
+$result = $wallet->addAddress( $callback_link, $confirmations );
+
+// Wallet API: add and process payments
+$result = $wallet->addPayment( $address_1, $amount_1 )->addPayment( $address_2, $amount_2 )->pay();
+
+// Wallet API: Wallet state
+$result = $wallet->state();
+
+// Wallet API: Wallet transactions
+$result = $wallet->transactions( $from, $to, $limit, $page );
+
+// Wallet API: Wallet addresses
+$result = $wallet->addresses( $from, $to, $limit, $page );
+
+// Wallet API: Wallet transactions per Address
+$result = $wallet->addressTransactions( $address, $from, $to, $limit, $page );
+
+// Wallet API: Wallet daily statistics
+$result = $wallet->statistics( $from, $to, $limit, $page );

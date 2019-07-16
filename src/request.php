@@ -27,9 +27,9 @@ class request{
     }
 
 
-    protected function post( $url, $data = array() ){
+    protected function post( $url, $data = array(), $headers = array() ){
 
-        $req = Requests::post( $url, array('Content-Type' => 'application/json'), json_encode( $this->clear( $data ) ) );
+        $req = Requests::post( $url, array('Content-Type' => 'application/json') + $headers, json_encode( $this->clear( $data ) ) );
         return $req->success ? json_decode( $req->body, $this->json_assoc ) : null;
     }
 
