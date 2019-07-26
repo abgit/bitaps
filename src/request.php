@@ -8,6 +8,7 @@ class request{
 
     private $json_assoc = true;
     protected $endpoint;
+    private $rate_per5second = 60;
 
     public function setEndpoint( $url ){
         $this->endpoint = $url;
@@ -15,6 +16,10 @@ class request{
 
     public function setJsonObject(){
         $this->json_assoc = false;
+    }
+
+    public function getRatePer5Second(){
+        return $this->rate_per5second;
     }
 
     protected function get( $url, $headers = array(), $getparams = array() ){
